@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TabelaSeries extends Migration
+class AdicionaCampoAssistido extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class TabelaSeries extends Migration
      */
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nome');
-            
+        Schema::table('episodios', function (Blueprint $table) {
+            $table->boolean('assistido')->default(false);
         });
     }
 
@@ -27,6 +25,8 @@ class TabelaSeries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Series');
+        Schema::table('episodios', function (Blueprint $table) {
+            $table->dropColumn('assistido');
+        });
     }
 }

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Fruta;
 use App\Http\Requests\frutasFormRequest;
-use Fruta as GlobalFruta;
-use Illuminate\Http\Client\Request as ClientRequest;
+use App\Models\Fruta;
 use Illuminate\Http\Request;
 
 class frutasController extends Controller{
